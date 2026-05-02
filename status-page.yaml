@@ -12,6 +12,12 @@ metadata:
   namespace: status
 data:
   config.yaml: |
+    ui:
+      title: "confuzer status"
+      description: "status page for confuzer (nextcloud and other services)"
+      dashboard-heading: "confuzer status"
+      dashboard-subheading: "status page for confuzer (nextcloud and other services)"
+
     alerting:
       matrix:
         homeserver: "{{MATRIX_HOMESERVER}}"
