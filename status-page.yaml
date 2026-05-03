@@ -86,7 +86,7 @@ data:
           - type: matrix
 
       - name: multibot
-        url: "https://botbot.jjv.sh"
+        url: "https://multibot.jjv.sh"
         interval: 60s
         conditions:
           - "[STATUS] == 200"
