@@ -21,9 +21,9 @@ data:
 
     alerting:
       matrix:
-        homeserver: "{{MATRIX_HOMESERVER}}"
-        access-token: "{{MATRIX_ACCESS_TOKEN}}"
-        internal-room-id: "{{MATRIX_ROOM_ID}}"
+        homeserver: "${MATRIX_HOMESERVER}"
+        access-token: "${MATRIX_ACCESS_TOKEN}"
+        internal-room-id: "${MATRIX_ROOM_ID}"
 
         default-alert:
           send-on-resolved: true
