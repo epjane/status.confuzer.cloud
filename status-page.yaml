@@ -17,6 +17,7 @@ data:
       description: "status page for confuzer (nextcloud and other services)"
       dashboard-heading: "confuzer status"
       dashboard-subheading: "status page for confuzer (nextcloud and other services)"
+      default-sort-by: group
 
     alerting:
       matrix:
@@ -32,6 +33,7 @@ data:
 
     endpoints:
       - name: nextcloud
+        group: confuzer
         url: "https://drive.confuzer.cloud"
         interval: 60s
         conditions:
@@ -41,6 +43,7 @@ data:
           - type: matrix
 
       - name: refuzer
+        group: confuzer
         url: "https://refuzer.confuzer.cloud"
         interval: 60s
         conditions:
@@ -50,6 +53,7 @@ data:
           - type: matrix
 
       - name: backup
+        group: confuzer
         url: "http://backup.confuzer.cloud"
         interval: 60s
         conditions:
@@ -58,16 +62,8 @@ data:
           - type: matrix
 
       - name: confuzer
+        group: confuzer
         url: "https://confuzer.cloud"
-        interval: 60s
-        conditions:
-          - "[STATUS] == 200"
-          - "[CERTIFICATE_EXPIRATION] > 480h"
-        alerts:
-          - type: matrix
-
-      - name: test (down on day 1 each month)
-        url: "https://status-test.confuzer.cloud"
         interval: 60s
         conditions:
           - "[STATUS] == 200"
@@ -77,6 +73,7 @@ data:
 
 
       - name: jjv.sh
+        group: jjv.sh
         url: "https://jjv.sh"
         interval: 60s
         conditions:
@@ -86,6 +83,7 @@ data:
           - type: matrix
 
       - name: multibot
+        group: jjv.sh
         url: "https://multibot.jjv.sh"
         interval: 60s
         conditions:
@@ -95,6 +93,7 @@ data:
           - type: matrix
 
       - name: games
+        group: jjv.sh
         url: "https://games.jjv.sh"
         interval: 60s
         conditions:
@@ -104,6 +103,7 @@ data:
           - type: matrix
 
       - name: waldo
+        group: jjv.sh
         url: "https://waldo.jjv.sh"
         interval: 60s
         conditions:
@@ -113,6 +113,7 @@ data:
           - type: matrix
 
       - name: asciiradio
+        group: jjv.sh
         url: "https://asciiradio.jjv.sh"
         interval: 60s
         conditions:
@@ -122,6 +123,7 @@ data:
           - type: matrix
 
       - name: snikket
+        group: jjv.sh
         url: "https://chat.jjv.sh"
         interval: 60s
         conditions:
@@ -131,6 +133,7 @@ data:
           - type: matrix
 
       - name: jj electronics
+        group: jjv.sh
         url: "https://electronics.jjv.sh"
         interval: 60s
         conditions:
@@ -140,6 +143,7 @@ data:
           - type: matrix
 
       - name: files
+        group: jjv.sh
         url: "https://f.jjv.sh"
         interval: 60s
         conditions:
@@ -149,6 +153,7 @@ data:
           - type: matrix
 
       - name: m2m2m
+        group: jjv.sh
         url: "https://m2m2m.jjv.sh"
         interval: 60s
         conditions:
@@ -158,6 +163,7 @@ data:
           - type: matrix
 
       - name: rtmp
+        group: jjv.sh
         url: "https://rtmp.jjv.sh"
         interval: 60s
         conditions:
@@ -167,6 +173,7 @@ data:
           - type: matrix
 
       - name: status.jjv.sh
+        group: jjv.sh
         url: "https://status.jjv.sh"
         interval: 60s
         conditions:
@@ -177,6 +184,7 @@ data:
 
 
       - name: dropposite.tv
+        group: misc
         url: "https://dropposite.tv"
         interval: 60s
         conditions:
@@ -186,6 +194,7 @@ data:
           - type: matrix
 
       - name: droppo.site
+        group: misc
         url: "https://droppo.site"
         interval: 60s
         conditions:
@@ -195,6 +204,7 @@ data:
           - type: matrix
 
       - name: sussy factory
+        group: misc
         url: "https://sus.ftc7393.org"
         interval: 60s
         conditions:
@@ -204,6 +214,7 @@ data:
           - type: matrix
 
       - name: ribbon requestor
+        group: misc
         url: "https://ribbon.ftc7393.org"
         interval: 60s
         conditions:
@@ -213,6 +224,7 @@ data:
           - type: matrix
 
       - name: vandegriff.net
+        group: misc
         url: "https://vandegriff.net"
         interval: 60s
         conditions:
@@ -222,7 +234,18 @@ data:
           - type: matrix
 
       - name: joe.vandegriff.net
+        group: misc
         url: "https://joe.vandegriff.net"
+        interval: 60s
+        conditions:
+          - "[STATUS] == 200"
+          - "[CERTIFICATE_EXPIRATION] > 480h"
+        alerts:
+          - type: matrix
+
+      - name: test (down on day 1 each month)
+        group: misc
+        url: "https://status-test.confuzer.cloud"
         interval: 60s
         conditions:
           - "[STATUS] == 200"

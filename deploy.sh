@@ -22,4 +22,7 @@ set -x #show commands again
 
 kubectl -n $ns apply -f status-page-ingress.yaml
 
+#this will reload config faster but resend alerts for anything already down
+# kubectl -n $ns rollout restart deployment gatus
+
 # kubectl -n $ns logs deployment/gatus --tail=100 -f
