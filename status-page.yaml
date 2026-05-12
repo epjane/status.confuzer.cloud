@@ -121,6 +121,9 @@ data:
           - "[CERTIFICATE_EXPIRATION] > 480h"
         alerts:
           - type: matrix
+            send-on-resolved: true
+            failure-threshold: 5
+            success-threshold: 2
 
       - name: jj electronics
         group: jjv.sh
