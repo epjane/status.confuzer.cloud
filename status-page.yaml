@@ -52,18 +52,29 @@ data:
         alerts:
           - type: matrix
 
-      - name: backup
-        group: confuzer
-        url: "http://backup.confuzer.cloud"
-        interval: 60s
-        conditions:
-          - "[STATUS] == 401"
-        alerts:
-          - type: matrix
-
       - name: confuzer
         group: confuzer
         url: "https://confuzer.cloud"
+        interval: 60s
+        conditions:
+          - "[STATUS] == 200"
+          - "[CERTIFICATE_EXPIRATION] > 480h"
+        alerts:
+          - type: matrix
+
+      - name: syncthing-lincolnv
+        group: confuzer
+        url: "https://syncthing-lincolnv.confuzer.cloud"
+        interval: 60s
+        conditions:
+          - "[STATUS] == 200"
+          - "[CERTIFICATE_EXPIRATION] > 480h"
+        alerts:
+          - type: matrix
+
+      - name: syncthing-jane
+        group: confuzer
+        url: "https://syncthing-jane.confuzer.cloud"
         interval: 60s
         conditions:
           - "[STATUS] == 200"
